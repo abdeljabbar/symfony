@@ -4,7 +4,7 @@ CHANGELOG
 2.5.0
 -----
 
-* Added `yml:lint` command
+* Added `yaml:lint` command
 
 2.4.0
 -----

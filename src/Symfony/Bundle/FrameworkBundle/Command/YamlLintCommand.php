@@ -19,16 +19,16 @@ use Symfony\Component\Yaml\Exception\ParseException;
 use Symfony\Component\Yaml\Parser;
 
 /**
- * Command that will validate your yml file syntax and output encountered errors.
+ * Command that will validate your yaml file syntax and output encountered errors.
  *
  * @author Grégoire Pineau <lyrixx@lyrixx.info>
  */
-class YmlLintCommand extends Command
+class YamlLintCommand extends Command
 {
     protected function configure()
     {
         $this
-            ->setName('yml:lint')
+            ->setName('yaml:lint')
             ->setDescription('Lints a file and outputs encountered errors')
             ->addArgument('filename')
             ->setHelp(<<<EOF
@@ -42,12 +42,12 @@ syntax.
 
 <info>php %command.full_name% dirname</info>
 
-The command finds all yml files in <comment>dirname</comment> and validates the
+The command finds all yaml files in <comment>dirname</comment> and validates the
 syntax of each one.
 
 <info>php %command.full_name% @AcmeDemoBundle</info>
 
-The command finds all yml files in the <comment>AcmeMyBundle</comment> bundle
+The command finds all yaml files in the <comment>AcmeMyBundle</comment> bundle
 and validates the syntax of each one.
 
 <info>cat filename | php %command.full_name%</info>
