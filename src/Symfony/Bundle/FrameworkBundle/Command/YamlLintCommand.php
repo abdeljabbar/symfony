@@ -94,6 +94,10 @@ EOF
             $errors += $this->validateFile($output, file_get_contents($file), $file);
         }
 
+        if (!$output->isVerbose()) {
+            $output->writeln(sprintf('<info>%d/%d valid files</info>', count($files) - $errors, count($files)));
+        }
+
         return $errors > 0 ? 1 : 0;
     }
 
@@ -102,7 +106,9 @@ EOF
         $this->parser = new Parser();
         try {
             $this->parser->parse($content);
-            $output->writeln('<info>OK</info>'.($file ? sprintf(' in %s', $file) : ''));
+            if ($output->isVerbose()) {
+                $output->writeln('<info>OK</info>'.($file ? sprintf(' in %s', $file) : ''));
+            }
         } catch (ParseException $e) {
             if ($file) {
                 $output->writeln(sprintf('<error>KO</error> in %s', $file));
